@@ -1,4 +1,3 @@
-
 use assert_cmd::Command;
 
 #[test]
@@ -7,7 +6,6 @@ fn thirtyfour() {
     let mut cmd = Command::cargo_bin("mini1").unwrap();
     cmd.arg("convert").arg("--num").arg("34");
     cmd.assert().success().stdout("XXXIV\n");
-
 }
 
 #[test]
@@ -16,7 +14,6 @@ fn fiftyeight() {
     let mut cmd = Command::cargo_bin("mini1").unwrap();
     cmd.arg("convert").arg("--num").arg("58");
     cmd.assert().success().stdout("LVIII\n");
-
 }
 
 #[test]
@@ -25,7 +22,6 @@ fn test1994() {
     let mut cmd = Command::cargo_bin("mini1").unwrap();
     cmd.arg("convert").arg("--num").arg("1994");
     cmd.assert().success().stdout("MCMXCIV\n");
-
 }
 
 #[test]

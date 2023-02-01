@@ -14,16 +14,20 @@ struct Cli {
 
 #[derive(Parser)]
 enum Commands {
-    #[clap(version = "1.0", author = "Selina Liu", about = "draw a random carot card")]
+    #[clap(
+        version = "1.0",
+        author = "Selina Liu",
+        about = "draw a random carot card"
+    )]
     Tarot {
         // #[clap(short, long)]
-    }
+    },
 }
 
 fn main() {
     let args = Cli::parse();
     match args.command {
-        Some(Commands::Tarot {  }) => {
+        Some(Commands::Tarot {}) => {
             let result = mini2::draw();
             println!("{}", result);
         }
