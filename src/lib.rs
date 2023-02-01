@@ -12,10 +12,14 @@ pub fn interpret(num: i32) -> String {
     let card = cards[num as usize].as_object().unwrap();
     let name = card["name"].as_str().unwrap();
 
-    let mut rng = rand::thread_rng();
-    let random = rng.gen_range(0..2);
     let fortunes = card["fortune_telling"].as_array().unwrap();
-    let fortune: &str = fortunes[random as usize].as_str().unwrap();
+    let f_size = fortunes.len();
+    let mut random: usize = 0;
+    if f_size > 1 {
+        let mut rng = rand::thread_rng();
+        random = rng.gen_range(0..f_size - 1);
+    }
+    let fortune: &str = fortunes[random].as_str().unwrap();
 
     result.push_str(name);
     result.push(' ');
@@ -31,9 +35,6 @@ pub fn interpret(num: i32) -> String {
 pub fn draw() -> String {
     let mut rng = rand::thread_rng();
     let random: i32 = rng.gen_range(0..57);
-
-    // print variable random
-    println!("{}", random);
 
     interpret(random)
 }
