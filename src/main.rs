@@ -14,20 +14,23 @@ struct Cli {
 
 #[derive(Parser)]
 enum Commands {
-    #[clap(version = "1.0", author = "Selina Liu")]
-    Convert {
-        #[clap(short, long)]
-        num: u32,
-    },
+    #[clap(version = "1.0", author = "Selina Liu", about = "draw a random carot card")]
+    Tarot {
+        // #[clap(short, long)]
+    }
 }
 
 fn main() {
     let args = Cli::parse();
     match args.command {
-        Some(Commands::Convert { num }) => {
-            let result = mini1::convert(&num);
+        Some(Commands::Tarot {  }) => {
+            let result = mini2::draw();
             println!("{}", result);
         }
+        // Some(Commands::Convert { name }) => {
+        //     let result = mini2::interpret(&name);
+        //     println!("{}", result);
+        // }
         None => println!("No subcommand was used"),
     }
 }
