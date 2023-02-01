@@ -1,5 +1,5 @@
-# rust-mini-week1:
-A Rust Mini Project command-line tool that converts an integer to Roman literals. 
+# rust-mini-week2:
+A Rust Mini Project command-line tool that draws a random Tarot card and tells fortune. 
 
 ## References
 
@@ -8,9 +8,9 @@ A Rust Mini Project command-line tool that converts an integer to Roman literals
 * [rust-marco-polo-example](https://github.com/noahgift/rust-mlops-template/tree/main/MarcoPolo)
 
 ## Usage
-<code>cargo run -- convert --num 34</code>
+<code>cargo run -- tarot</code>
  
- The command line tool uses the subcommand "<code>convert</code>" and takes in one argument, a <code>u32</code> integer named "<code>num</code>," as the above examples shows. The result should be outputted as "XXXIV"
+ The command line tool uses the subcommand "<code>tarot</code>" and generates a random number between 0-57, representing a random card from the 58 cards deck. Then, the tool parses the json for tarot cards, finds its name and selects a random fortune-telling for the specific card.
 
-## Test
-Run <code>make test</code> and the four tests written under <code>/tests</code> directory will run. 
+## Learning
+Learned json processing for Rust (using serde_json to unwrap in each level), as well as random number generator. 
